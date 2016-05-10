@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="cn.com.chanyue.dao.member.UsersDao">
+	<select id="getById" parameterType="Integer" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.id = #{id}
+	</select>
+
+	<select id="getByEmail" parameterType="String" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.email = #{email}
+	</select>
+
+	<select id="isExistEmail" parameterType="String" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.email = #{email} and
+		t.mailverify = '1'
+	</select>
+
+	<select id="isExistQQ" parameterType="String" resultType="Users">
+		select
+		*
+		from
+		tb_chanyue_common_users t where t.qq = #{qq} and
+		t.qqverify = '1'
+	</select>
+
+	<select id="isExistMobile" parameterType="String" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.mobile = #{mobile} and
+		t.mobiverify = '1'
+	</select>
+
+	<select id="getByQQ" parameterType="String" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.qq = #{qq}
+	</select>
+
+	<select id="getByMobile" parameterType="String" resultType="Users">
+		select *
+		from
+		tb_chanyue_common_users t where t.mobile = #{mobile}
+	</select>
+
+	<insert id="insert" parameterType="Users" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tb_chanyue_common_users(password, email,
+		mobile,
+		qq,
+		regIP,
+		regDate, salt, safeCode, question, answer, mailVerify)
+		values(#{password},
+		#{email}, #{mobile}, #{qq},
+		#{regIP}, now(),
+		#{salt}, #{safeCode}, #{question}, #{answer}, #{mailVerify})
+	</insert>
+
+	<update id="modifyPassword" parameterType="Users">
+		update
+		tb_chanyue_common_users set password = #{password}, salt = #{salt}
+		where id = #{id}
+	</update>
+
+	<select id="login" parameterType="Users" resultType="Users">
+		select *
+		from tb_chanyue_common_users t where t.email = #{email} and t.password
+		= md5(concat(md5(#{password}), t.salt))
+	</select>
+
+	<select id="validCaptcha" parameterType="Captcha" resultType="Captcha">
+		select * from tb_chanyue_commcon_captcha t where t.mode = #{mode} and
+		md5(concat(md5(t.code), t.code)) = #{code} and t.uid = #{uid} and
+		t.type = #{type} and t.receive = #{receive}
+	</select>
+
+	<delete id="deleteCaptcha" parameterType="Captcha">
+		delete
+		from
+		tb_chanyue_commcon_captcha where mode = #{mode} and
+		md5(concat(md5(code), code)) = #{code} and uid = #{uid} and
+		type =
+		#{type} and
+		receive = #{receive}
+	</delete>
+
+	<update id="validEmail" parameterType="Integer">
+		update
+		tb_chanyue_common_users set mailVerify = '1' where id = #{id}
+	</update>
+
+	<update id="lastLogin" parameterType="Users">
+		update
+		tb_chanyue_common_users set loginTimes = loginTimes + 1, password =
+		#{password}, salt = #{salt} where id = #{id}
+	</update>
+
+	<select id="insertCaptcha" parameterType="Captcha">
+		call
+		pro_insert_captcha(#{uid}, #{code}, #{type}, #{receive}, #{mode})
+	</select>
+
+	<select id="getSocialBind" parameterType="SocialBind"
+		resultType="SocialBind">
+		select *
+		from
+		tb_chanyue_common_socialbind t where t.appId =
+		#{appId} and t.openId = #{openId}
+	</select>
+
+	<update id="updateToken" parameterType="SocialBind">
+		update
+		tb_chanyue_common_socialbind set token = #{token} where uid = #{uid}
+	</update>
+
+	<insert id="insertSocialBind" parameterType="SocialBind">
+		insert into
+		tb_chanyue_common_socialbind(uid, openId, appId, token, bindDate)
+		values(#{uid}, #{openId}, #{appId}, #{token}, now())
+	</insert>
+</mapper>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<title>实名认证-fakafa个人中心-fakafa.com</title>
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Personal.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/change.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.validator.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.zh_CN.js"></script>
+<script charset="utf-8" lang="zh" language="javascript">
+    document.onkeydown=function(event){ 
+        e = event ? event :(window.event ? window.event : null); 
+        if(e.keyCode==13){ 
+            document.getElementById("hlkOK").click();
+        } 
+    }
+</script>
+<style type="text/css">
+.header {
+	height: 105px;
+}
+</style>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+</head>
+<body>
+[#include "../common/top.html"/]
+<div class="header">
+  <div class="left"><a href="//www.fakafa.com/"><img src="//static.fakafa.com/images/logo/logo_pro.png" alt="发卡发手游服务平台"/></a></div>
+  [#include "../common/search.html"/]
+</div>
+
+<div class="Navigation">
+  <div class="center Part">
+    <ul>
+      <li> <li> <a href="/">首页</a> <a class="hot" href="/apple.html">充值中心</a> <a target="_blank" href="#">客服中心</a> <a target="_blank" href="/bangzhu/">帮助中心</a> <a href="/user/index.html" style="background:#2c977d;">个人中心</a> </li>
+    </ul>
+  </div>
+</div>
+<!--头部结束-->
+<div class="clear"></div>
+<div class="center yxlb">您的当前位置是：<a href="/">首页</a> - <a href="/user/index.html" class="ls">个人中心</a></div>
+<div class="clear"></div>
+<div class="center"> 
+[#include "../common/userLeft.html"/]
+  <div class="personal_right">
+  	[#include "../common/userCenter.html"/]  
+    <div class="ddgl">
+      <h1>账户设置</h1>
+      <div class="m10">
+        <ul class="site_title">
+          <li><a href="/user/modifypswd.jspx">修改登录密码</a></li>
+          <li><a href="#">我的安全密码</a></li>
+          <li class="rad"><a href="/user/realauth.jspx">防沉迷实名认证</a></li>
+          <li><a href="#">邮箱验证</a></li>
+          <li><a href="#">密保问题</a></li>
+        </ul>
+        [#if realAuth?? ]
+        <ul class="site_list">
+            <li>
+              <label>真实姓名：</label>
+              <input type="text" id="realname" name="realname" maxlength="10" style="border: none;text-align: center;" readonly="readonly" value="${(realAuth.realName)[0..0]}**"/>
+            </li>
+            <li>
+              <label>身份证号码：</label>
+              <input type="text" id="idcard" name="idcard"  maxlength="18" style="border: none;text-align: center;" readonly="readonly" value="${(realAuth.idCard)[0..5]}***********" />
+            </li>
+            <li class="label"><a class="red">您已通过防沉迷实名认证！</a></li>
+          </ul>
+        [#else]
+        <form id="realauthForm" method="post" action="/user/realauth.jspx" autocomplete="off" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+          <ul class="site_list">
+            <li>
+              <label>真实姓名：</label>
+              <input type="text" id="realname" name="realname" maxlength="10" placeholder="请输入真实姓名" data-rule="真实姓名: required;chinese;length[2~10];" />
+            </li>
+            <li>
+              <label>身份证号码：</label>
+              <input type="text" id="idcard" name="idcard" maxlength="18" placeholder="请输入身份证号码" data-rule="身份证号码: required;ID_card;length[18];"  />
+            </li>
+            <li class="label"><a id="hlkOK" onclick="realauthForm.submit()" class="site_btn"></a></li>
+          </ul>
+        </form>
+        [/#if]<p>
+		<ul style="color:#333333;font-family:宋体, Arial;text-align:center;">
+			<li style="text-align:left;font-weight:bold;">
+				按照版署《网络游戏未成年人防沉迷系统》要求
+			</li>
+			<li style="text-align:left;">
+				为预防青少年过度游戏，未满18岁的用户和身份信息不完整的用户将受到防沉迷系统的限制，发卡发手游服务平台积极响应国家新闻出版总署防沉迷政策要求，开发出网页游戏防沉迷系统。
+			</li>
+			<li style="text-align:left;">
+				年龄已满18周岁的玩家，在填写身份证资料后，可以不受防沉迷系统影响，自由进行游戏，否则游戏每日在线3小时后即打怪经验减半,超过5小时则无经验。
+			</li>
+			<li style="text-align:left;">
+				说明：系统只支持输入18位的中国身份证号码，持有其他证件（如：外国护照，军人证，等）者，请与在线客服联系处理。填写身份信息将使我们可以对您的年龄做出判断，以确定您的游戏时间是否需要按照国家新闻出版总署的要求纳入防沉迷系统的管理。
+			</li>
+			<li style="text-align:left;">
+				隐私说明：用户填写的身份信息属于用户的隐私。发卡发手游服务平台绝对尊重用户个人隐私权。所以，发卡发手游服务平台绝不会公开，编辑或透露用户的信息内容，除非有法律许可及公安管理规定。
+			</li>
+		</ul>
+		</p>
+		<p>
+			<br />
+		</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  --> 
+<!--底部开始-->
+<div class="clear"></div>
+<div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

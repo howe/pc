@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<title>修改密码-fakafa个人中心-fakafa.com</title>
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Personal.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/change.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.validator.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.zh_CN.js"></script>
+<style type="text/css">
+.header {
+	height: 105px;
+}
+</style>
+<script charset="utf-8" lang="zh" language="javascript">
+    document.onkeydown=function(event){ 
+        e = event ? event :(window.event ? window.event : null); 
+        if(e.keyCode==13){ 
+            document.getElementById("signSum").click();
+        } 
+    }
+</script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+</head>
+<body>
+[#include "../common/top.html"/]
+<div class="header">
+  <div class="left"><a href="//www.fakafa.com/"><img src="//static.fakafa.com/images/logo/logo_pro.png" alt="发卡发手游服务平台"/></a></div>
+  [#include "../common/search.html"/]
+</div>
+
+<div class="Navigation">
+  <div class="center Part">
+    <ul>
+      <li> <li> <a href="/">首页</a> <a class="hot" href="/apple.html">充值中心</a> <a target="_blank" href="/sc/sc_index.html">客服中心</a> <a target="_blank" href="/bangzhu/">帮助中心</a> <a href="/user/index.html" style="background:#2c977d;">个人中心</a> </li>
+    </ul>
+  </div>
+</div>
+<!--头部结束-->
+<div class="clear"></div>
+<div class="center yxlb">您的当前位置是：<a href="/">首页</a> - <a href="/user/index.html" class="ls">个人中心</a></div>
+<div class="clear"></div>
+<div class="center"> 
+[#include "../common/userLeft.html"/]
+  <div class="personal_right">
+  	[#include "../common/userCenter.html"/]  
+    <div class="ddgl">
+      <h1>账户设置</h1>
+      <div class="m10">
+        <ul class="site_title">
+          <li class="rad"><a href="/user/modifypswd.jspx">修改登录密码</a></li>
+          <li><a href="#">我的安全密码</a></li>
+          <li><a href="/user/realauth.jspx">实名认证</a></li>
+          <li><a href="#">邮箱验证</a></li>
+          <li><a href="#">密保问题</a></li>
+        </ul>
+        [#if (user.password) =='QuickLogin']
+        <ul class="site_list">
+        <h1>快捷登录的用户没有密码可修改，如需帮助请联系客服。</h1>
+        </ul>
+        [#else]
+        <form id="loginPasswordForm" method="post" action="/user/modifypswd.jspx" autocomplete="off" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+          <ul class="site_list">
+            <li>
+              <label>当前密码：</label>
+              <input type="hidden" id="email" name="email" value="${(user.email)!''}" />
+              <input type="password" id="pswd" name="pswd"  maxlength="20" placeholder="请输入当前密码" data-rule="当前密码：required;password;remote[/verifyPassword.jspx]" />
+            </li>
+            <li>
+              <label>新密码：</label>
+              <input type="password" id="password" name="password" maxlength="20" placeholder="请输入新密码" data-rule="新密码: required;password;length[6~20]" />
+            </li>
+            <li>
+              <label>确认新密码：</label>
+              <input type="password" id="newPassword1" maxlength="20" placeholder="请确认新密码" data-rule="确认新密码: required;match(password);"  />
+            </li>
+            <li class="label"><button type="submit" name="signSum" id="signSum" value="提交" style="background: url(//static.fakafa.com/images/css/tjxx.png) no-repeat; height: 28px; width: 85px; border: medium none; cursor: pointer;" /></li>
+          </ul>
+        </form>
+        [/#if]
+      </div>
+    </div>
+  </div>
+</div>
+<!--  --> 
+<!--底部开始-->
+<div class="clear"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

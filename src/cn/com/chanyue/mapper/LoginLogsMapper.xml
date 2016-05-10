@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="cn.com.chanyue.dao.member.LoginLogsDao">
+	<select id="getLoginTotalNum" parameterType="Integer"
+		resultType="Integer">
+		select count(*)
+		from
+		tb_chanyue_common_login_logs t where
+		t.uid = #{uid}
+	</select>
+
+	<select id="getLoginLogs" parameterType="Page" resultType="LoginLogs">
+	<![CDATA[
+		select * from tb_chanyue_common_login_logs where uid=#{uid} and id <=
+		(select id from tb_chanyue_common_login_logs where uid=#{uid} order by
+		logindate desc limit #{tmp}, 1) order by logindate desc limit #{num}
+	]]>
+	</select>
+
+	<insert id="insertLoginLogs" parameterType="LoginLogs">
+		insert into
+		tb_chanyue_common_login_logs(uid, ip, loginDate) values(#{uid}, #{ip},
+		now())
+	</insert>
+
+	<select id="queryPreLogin" parameterType="Integer" resultType="LoginLogs">
+		SELECT * FROM tb_chanyue_common_login_logs WHERE uid = #{uid} ORDER BY
+		loginDate DESC LIMIT 1,1
+	</select>
+
+</mapper> 

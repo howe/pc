@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/topfoot.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.validator.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.zh_CN.js"></script>
+<script charset="utf-8" lang="zh" language="javascript">
+    document.onkeydown=function(event){ 
+        e = event ? event :(window.event ? window.event : null); 
+        if(e.keyCode==13){ 
+            document.getElementById("signSum").click();
+        } 
+    }
+</script>
+<title>fakafa.com - 会员注册</title>
+<meta name="keywords" content="游戏交易平台，手机游戏交易，app充值，游戏币交易，网络游戏，游戏币，点卡，装备，账号，fakafa，fakafa.com" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，手游充值，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" />
+</head>
+<body>
+<div class="form-wrap">
+  <div class="form-head-box">
+    <div class="form-head-top">
+      <div class="form-logo"> <a href="//www.fakafa.com"><img alt="发卡发手游服务平台" src="//static.fakafa.com/images/logo/form-logo.gif" width="240" height="61"/></a> </div>
+      <div class="head-login status-login"> <a href="/"> 首页 </a> <span></span> <a href="/apple.html">游戏</a> <span></span> <a href="/register.html">注册</a> </div>
+    </div>
+    <div class="form-nav">
+      <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/apple.html">充值中心</a></li>
+        <li class="current"><a href="/user/index.html">用户中心</a></li>
+        <li><a href="/findpswd.html">密码找回</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="form-content">
+    <div class="tang-pass-reg">
+      <div class="sign-title">
+        <h2>帐号注册</h2>
+      </div>
+      <form id="registerForm" method="post" action="/register.jspx" autocomplete="off" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}" class="registerform sign-form">
+        <table width="100%" style="table-layout:fixed;">
+          <tr>
+            <td class="user">邮箱：</td>
+            <td width="270" ><input type="text" class="inputxt"  id="email" name="email" maxlength="30" placeholder="请输入电子邮件" data-rule="电子邮件: required;email;remote[/checkEmail.jspx]" /></td>
+			<td></td>
+		  </tr>
+		  <tr>
+            <td class="user">登录密码：</td>
+            <td width="270"><input class="inputxt" type="password" id="password" name="password" maxlength="20" placeholder="请输入密码" data-rule="密码: required;password;length[6~20]" /></td>
+			<td></td>
+		  </tr>
+          <tr>
+            <td class="user">重复密码：</td>
+            <td><input type="password" class="inputxt" id="repassword" name="repassword" maxlength="20" placeholder="请确认密码" data-rule="确认密码: required;match(password);" /></td>
+			<td></td>
+		  </tr>
+        </table>
+        
+        <div class="form-hr-sign"></div>
+        <!--
+        <table>
+          <tr>
+            <td class="user">密保问题：</td>
+            <td width="270">
+				<select class="box-select" id="question" name="question" data-rule="密保问题: required;">
+					<option value="">请选择密保问题</option>
+					<option value="您母亲的姓名是？">您母亲的姓名是？</option>
+					<option value="您配偶的生日是？">您配偶的生日是？</option>
+					<option value="您的学号（或工号）是？">您的学号（或工号）是？</option>
+					<option value="您母亲的生日是？">您母亲的生日是？</option>
+					<option value="您高中班主任的名字是？">您高中班主任的名字是？</option>
+					<option value="您父亲的姓名是？">您父亲的姓名是？</option>
+					<option value="您小学班主任的名字是？">您小学班主任的名字是？</option>
+					<option value="您父亲的生日是？">您父亲的生日是？</option>
+					<option value="您配偶的姓名是？">您配偶的姓名是？</option>
+					<option value="您初中班主任的名字是？">您初中班主任的名字是？</option>
+					<option value="您最熟悉的童年好友名字是？">您最熟悉的童年好友名字是？</option>
+					<option value="您最熟悉的学校宿舍室友名字是？">您最熟悉的学校宿舍室友名字是？</option>
+					<option value="对您影响最大的人名字是？">对您影响最大的人名字是？</option>
+				</select>
+			</td>
+            <td></td>
+          </tr>
+		  <tr>
+            <td class="user">密保答案：</td>
+            <td><input type="password" class="inputxt" placeholder="请输入密保答案" id="answer" name="answer" maxlength="20" data-rule="密保答案: required;" /></td>
+			<td></td>
+		  </tr>
+          <tr>
+            <td class="user">安全码：</td>
+            <td width="270"><input type="text" id="safecode" placeholder="用来找回密码" name="safecode" maxlength="6" data-rule="安全密码: required;digits;length[6~6]" class="pass-text-input form-code" /></td>
+			<td></td>
+          </tr>
+        </table>
+          -->
+        <p class="reginfo_a_btn">
+          <input name="RegisterForm[agree]" value="1" type="checkbox" id="agreebbrule" disabled="disabled" checked="checked" />
+          <label for="agreebbrule"> 我已阅读并接受 <a href="#" target="_blank"> 《fakafa服务条款》 </a> </label>
+        </p>
+        <p class="reg-btn">
+          <input type="submit" name="signSum" id="signSum" value="立即注册" class="user-btn" />
+        </p>
+      </form>
+      <div class="pass-log">
+        <div class="log-box">
+          <h1> <img src="//static.fakafa.com/images/css/code.gif"/> </h1>
+          <h2> 请点击这里 <a href="/login.html"> 直接登录 </a></h2>
+          <h2>
+          	<a href="/login/qq.jspx" class="a-sign" title="QQ帐号登录"><img title="QQ帐号登录" alt="QQ帐号登录" src="//static.fakafa.com/images/icon/quicklogin/login_qq.png" width="63" height="24" /></a>&nbsp;
+          	<a href="/login/weixin.jspx" class="a-sign" title="微信扫码登录"><img title="微信扫码登录" alt="微信扫码登录" src="//static.fakafa.com/images/icon/quicklogin/login_weixin.png" width="63" height="24" /></a>&nbsp;
+          	<a href="/login/alipay.jspx" class="a-sign" title="支付宝快捷登录"><img title="支付宝快捷登录" alt="支付宝快捷登录" src="//static.fakafa.com/images/icon/quicklogin/login_alipay.png" width="63" height="24" /></a>&nbsp;
+          	<a href="/login/weibo.jspx" class="a-sign" title="微博登录"><img title="微博登录" alt="微博登录" src="//static.fakafa.com/images/icon/quicklogin/login_weibo.png" width="63" height="24" /></a>&nbsp;
+          	<a href="/login/qihu.jspx" class="a-sign" title="360账号登录"><img title="360账号登录" alt="360账号登录" src="//static.fakafa.com/images/icon/quicklogin/login_qihu.png" width="63" height="24" /></a>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-top"></div>
+  <div class="bufan_foot_bg">
+    <div class="bufan_foot_black"><a href="/bangzhu/20141129/6.html" target="_blank" title="关于我们">关于我们</a> | <a href="#" target="_blank" title="招聘信息">招聘信息</a> | <a href="/bangzhu/20141129/6.html" target="_blank" title="联系我们">联系我们</a> | <a href="/kefu/20141129/9.html" target="_blank" title="意见反馈">意见反馈</a><br />
+      <span>Copyright © 2014-2015 fakafa.com, All Rights Reserved. fakafa&trade;手游服务平台 版权所有  ICP证：<a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备14051286号</a></span></div>
+  </div>
+  <div style="display: none;"> 
+   	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254049203'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254049203' type='text/javascript'%3E%3C/script%3E"));</script>
+  </div>
+</div>
+</body>
+</html>

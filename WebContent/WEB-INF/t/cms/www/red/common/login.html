@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/topfoot.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.validator.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.zh_CN.js"></script>
+<script charset="utf-8" lang="zh" language="javascript">
+    document.onkeydown=function(event){ 
+        e = event ? event :(window.event ? window.event : null); 
+        if(e.keyCode==13){ 
+            document.getElementById("loginBtn").click();
+        } 
+    }
+</script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+<title>fakafa.com - 帐号登录</title>
+<meta name="keywords" content="游戏交易平台，手机游戏交易，app充值，游戏币交易，网络游戏，游戏币，点卡，装备，账号，fakafa，fakafa.com" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，手游充值，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" />
+</head>
+<body>
+<div class="form-wrap">
+  <div class="form-head-box">
+    <div class="form-head-top">
+      <div class="form-logo"> <a href="//www.fakafa.com"><img src="//static.fakafa.com/images/logo/form-logo.gif" alt="发卡发手游服务平台" width="240" height="61" /></a> </div>
+      <div class="head-login status-login"> <a href="/"> 首页 </a> <span></span> <a href="/apple.html">游戏</a> <span></span> <a href="/register.html">注册</a> </div>
+    </div>
+    <div class="form-nav">
+      <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/apple.html">充值中心</a></li>
+        <li class="current"><a href="/user/index.html">用户中心</a></li>
+        <li><a href="/findpswd.html">密码找回</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="login">
+    <div class="login-left"> <img width="630" height="340" src="//static.fakafa.com/images/login/login-mads.gif" alt="发卡发手游服务平台" /> </div>
+    <div class="login-right">
+      <div class="tang-pass-reg tang-pass-log">
+        <form method="post" id="loginForm" action="/login.jspx" class="loginform openform" autocomplete="off" data-validator-option="{theme:'default_bottom',stopOnError:true}">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr style="height: 20px;">
+              <th>登录fakafa.com</th>
+            </tr>
+            <tr class="msg">
+              <td id="msgdemo2"></td>
+            </tr>
+            <tr>
+              <td><input class="inputxt" type="text" maxlength="30" style="ime-mode:disabled" id="email" name="email" placeholder="请输入邮箱" data-rule="电子邮件: required;email;remote[/verifyEmail.jspx]" /><input type="hidden" value="${returnUrl!''}" id="returnUrl" name="returnUrl" /></td>
+            </tr>
+            <tr>
+              <td><input class="inputxt" type="password" maxlength="20" name="password" id="password" placeholder="请输入密码" data-rule="密码: required;password;length[6~20];remote[/checkPassword.jspx, email, password]" /></td>
+            </tr>
+            <tr>
+              <td><input type="submit" name="loginBtn" id="loginBtn" value="登 录" /></td>
+            </tr>
+          </table>
+        </form>
+        <ul class="entries">
+          <li> 还没有帐号？ <a href="/register.html" class="a-sign">马上注册</a> </li>
+          <li class="forget-pw"><a href="/findpswd.html">忘记密码？</a></li>
+        </ul>
+        <div class="login-hr"></div>
+        <ul class="entries">
+          <li><a href="/login/qq.jspx" title="QQ帐号登录" class="a-sign"><img title="QQ帐号登录" src="//static.fakafa.com/images/icon/quicklogin/login_qq.png" alt="QQ帐号登录" width="63" height="24" /></a>&nbsp;
+          	  <a href="/login/weixin.jspx" title="微信扫码登录" class="a-sign"><img title="微信扫码登录" src="//static.fakafa.com/images/icon/quicklogin/login_weixin.png" alt="微信扫码登录" width="63" height="24" /></a>&nbsp;
+          	  <a href="/login/alipay.jspx" class="a-sign" title="支付宝快捷登录"><img title="支付宝快捷登录" src="//static.fakafa.com/images/icon/quicklogin/login_alipay.png" width="63" height="24" alt="支付宝快捷登录" /></a>&nbsp;
+          	  <a href="/login/weibo.jspx" class="a-sign" title="微博登录"><img title="微博登录" src="//static.fakafa.com/images/icon/quicklogin/login_weibo.png" width="63" height="24" alt="微博登录" /></a>&nbsp;
+          	  <a href="/login/qihu.jspx" class="a-sign" title="360账号登录"><img title="360账号登录" src="//static.fakafa.com/images/icon/quicklogin/login_qihu.png" alt="360账号登录" width="63" height="24" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="trait">
+      <ul>
+        <li> <img src="//static.fakafa.com/images/login/login-icon1.gif" alt="安全的帐号保护机制" width="85" height="89" />
+          <div class="trait-text">
+            <h1>坚若磐石</h1>
+            <h2>安全的帐号保护机制</h2>
+          </div>
+        </li>
+        <li> <img src="//static.fakafa.com/images/login/login-icon2.gif" alt="快速的注册登录体验" width="85" height="89" />
+          <div class="trait-text">
+            <h1>疾如闪电</h1>
+            <h2>快速的注册登录体验</h2>
+          </div>
+        </li>
+        <li> <img src="//static.fakafa.com/images/login/login-icon3.gif" alt="多端同步您个人数据" width="85" height="89" />
+          <div class="trait-text">
+            <h1>云端同步</h1>
+            <h2>多端同步您个人数据</h2>
+          </div>
+        </li>
+        <li> <img src="//static.fakafa.com/images/login/login-icon4.gif" alt="丰富的会员特权奖励" width="85" height="89" />
+          <div class="trait-text">
+            <h1>海量特权</h1>
+            <h2>丰富的会员特权奖励</h2>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-top"></div>
+  <div class="bufan_foot_bg">
+    <div class="bufan_foot_black"><a href="/bangzhu/20141129/6.html" target="_blank" title="关于我们">关于我们</a> | <a href="#" target="_blank" title="招聘信息">招聘信息</a> | <a href="/kefu/20141129/8.html" target="_blank" title="联系我们">联系我们</a> | <a href="/kefu/20141129/9.html" target="_blank" title="意见反馈">意见反馈</a><br />
+      <span>Copyright © 2014-2015 fakafa.com, All Rights Reserved. fakafa&trade;手游服务平台 版权所有  ICP证：<a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备14051286号</a></span></div>
+  </div>
+	<div style="display: none;"> 
+	  	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254049203'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254049203' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
+</div>
+</body>
+</html>

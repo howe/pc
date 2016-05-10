@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="cn.com.chanyue.dao.chong.BuyDao">
+
+	<select id="getGameById" parameterType="Integer" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.id = #{id} and t.shelf =
+		'1'
+	</select>
+
+	<select id="getDiscount" parameterType="Par" resultType="Integer">
+		select
+		cast((ifnull(t.price,1)/ifnull(t.face, 1)*10) as decimal(9,1)) as
+		discount from tb_chanyue_chong_par t where t.gid = #{gid} and t.oid =
+		#{oid} and
+		t.tid = #{tid} order by discount limit 0,1
+	</select>
+
+	<select id="getGameByName" parameterType="Game" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.plid = #{plid} and t.gName
+		= #{gName} and t.shelf = '1'
+	</select>
+
+	<select id="getGS1" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 1 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id
+	</select>
+
+	<select id="getGS3" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 3 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id
+	</select>
+
+	<select id="getGS4" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 4 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id
+	</select>
+
+	<select id="getGS5" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 5 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id
+	</select>
+
+	<select id="getGS21" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 2 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id and
+		a.t1 = 1
+	</select>
+
+	<select id="getGS22" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 2 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id and
+		a.t2 = 1
+	</select>
+
+	<select id="getGS23" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 2 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id and
+		a.t3 = 1
+	</select>
+
+	<select id="getGS24" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 2 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id and
+		a.t4 = 1
+	</select>
+
+	<select id="getGS25" parameterType="String" resultType="GS">
+		select
+		a.id,
+		a.plid, b.pName, a.gName, c.id as oid, c.oName from
+		tb_chanyue_chong_game a, tb_chanyue_chong_platform b,
+		tb_chanyue_chong_operator c WHERE a.plid = 2 and a.gName = #{gName}
+		and a.shelf = '1'
+		and
+		a.shelf = 1 and a.id = c.gid and a.plid = b.id and
+		a.t5 = 1
+	</select>
+
+	<select id="getPaywayById" parameterType="Integer" resultType="Payway">
+		select *
+		from
+		tb_chanyue_chong_payway t where
+		t.id = #{id}
+	</select>
+
+	<select id="getHaoById" parameterType="Integer" resultType="Hao">
+		select *
+		from
+		tb_chanyue_chong_hao t where
+		t.id = #{id}
+	</select>
+
+	<select id="getHaoByOrderId" parameterType="Integer" resultType="Hao">
+		select *
+		from
+		tb_chanyue_chong_hao t where
+		t.orderId = #{orderId}
+	</select>
+
+	<select id="getHao" parameterType="Hao" resultType="Hao">
+		select *
+		from
+		tb_chanyue_chong_hao t where
+		t.account = #{account} and t.gid = #{gid}
+	</select>
+
+	<select id="getPaymentById" parameterType="Integer" resultType="Payment">
+		select *
+		from
+		tb_chanyue_chong_payment t where
+		t.id = #{id}
+	</select>
+
+	<select id="getPaymentInfo" parameterType="Integer" resultType="Payment">
+		select *
+		from
+		tb_chanyue_chong_payment t where
+		t.orderId = #{orderId} and
+		t.status != '0' and t.tsn is not null limit 0,1
+	</select>
+
+	<select id="verifyPayment" parameterType="String" resultType="Payment">
+		select *
+		from
+		tb_chanyue_chong_payment t where
+		t.tsn = #{tsn}
+	</select>
+
+	<select id="getParById" parameterType="Integer" resultType="Par">
+		select *
+		from
+		tb_chanyue_chong_par t where
+		t.id = #{id}
+	</select>
+
+	<select id="getAreaById" parameterType="Integer" resultType="Area">
+		select *
+		from
+		tb_chanyue_chong_area t where
+		t.id = #{id}
+	</select>
+
+	<insert id="insertHao" parameterType="Hao" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tb_chanyue_chong_hao(uid, orderId,
+		gid,
+		gName, oid, oName, aid, aName, sid, num, sName, creatTime, remark)
+		values(#{uid},
+		#{orderId}, #{gid}, #{gName}, #{oid}, #{oName}, #{aid},
+		#{aName}, #{sid}, #{num}, #{sName}, NOW(), #{remark})
+	</insert>
+
+	<insert id="insertPayment" parameterType="Payment" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tb_chanyue_chong_payment(uid, orderId,
+		total, payGate, payWay, payName, createTime, ip, status)
+		values(#{uid},
+		#{orderId}, #{total}, #{payGate}, #{payWay}, #{payName},
+		NOW(), #{ip}, '0')
+	</insert>
+
+	<insert id="insertOrder" parameterType="Order" keyProperty="id"
+		useGeneratedKeys="true">
+		insert into tb_chanyue_chong_order(uid, type,
+		pid,
+		num, face, juese, plid,
+		pName,
+		gid,
+		gName, oid, oName, aid, aName, sid,
+		sName,
+		standard, price,
+		quantity,
+		account, pswd, mobile, qq, orderTime,
+		payTime, ip, status, source)
+		values(#{uid},
+		#{type},
+		#{pid},
+		#{num},
+		#{face},
+		#{juese},
+		#{plid},
+		#{pName},
+		#{gid},
+		#{gName},
+		#{oid},
+		#{oName},
+		#{aid}, #{aName},
+		#{sid},
+		#{sName}, #{standard}, #{price}, #{quantity},
+		#{account},
+		#{pswd},
+		#{mobile}, #{qq}, NOW(), NULL, #{ip}, '0',
+		#{source})
+	</insert>
+
+	<select id="getOrderById" parameterType="Integer" resultType="Order">
+		select *
+		from
+		tb_chanyue_chong_order t where
+		t.id = #{id}
+	</select>
+
+	<select id="getDetail" parameterType="Order" resultType="Order">
+		select *
+		from
+		tb_chanyue_chong_order t where
+		t.id = #{id} and t.uid = #{uid}
+	</select>
+
+	<select id="getOperatorList" parameterType="Integer" resultType="Operator">
+		select *
+		from
+		tb_chanyue_chong_operator t where
+		t.gid = #{gid}
+	</select>
+
+	<select id="search" parameterType="String" resultType="Game">
+		select *
+		from tb_chanyue_chong_game t where (lower(t.pinyin) like '%${_parameter}%' or
+		lower(t.py) like '%${_parameter}%') and t.shelf='1' and t.plid = '1'
+	</select>
+
+	<select id="getOperatorListF" parameterType="Integer"
+		resultType="Operator">
+		select *
+		from
+		tb_chanyue_chong_operator t where
+		t.gid = #{gid}
+		and t.isF = '1'
+	</select>
+
+	<select id="getOrderList" parameterType="Integer" resultType="Order">
+		select *
+		from
+		tb_chanyue_chong_order t where
+		t.uid = #{uid} order by
+		t.orderTime desc
+	</select>
+
+	<select id="getGameListIndex" parameterType="Integer"
+		resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.plid = #{plid}
+		and
+		t.isTop = 1 and t.shelf = '1' order by isHot desc, id desc limit 0,
+		9
+	</select>
+
+	<select id="getGameList" parameterType="Integer" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where t.plid = #{plid} and t.shelf
+		= '1' order by t.isHot desc, t.id desc
+	</select>
+
+	<select id="getGameSitemap" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where t.shelf = '1' order by t.isHot desc,
+		t.py asc
+	</select>
+
+	<select id="getGameListByPlid" parameterType="Integer"
+		resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.plid = #{plid}
+		and t.shelf = 1 order by t.py
+	</select>
+
+	<select id="getGameHotList" parameterType="Integer" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.plid = #{plid} and t.isHot
+		= '1' and t.shelf =
+		'1' order by t.isHot desc, t.id desc
+	</select>
+
+	<select id="getGameSortList" parameterType="Game" resultType="Game">
+		select *
+		from
+		tb_chanyue_chong_game t where
+		t.plid = #{plid} and t.shelf
+		= '1' and t.py like concat(#{py}, '%') order by t.isHot desc, t.id
+		desc
+	</select>
+
+	<select id="getPlatformList" resultType="Platform">
+		select *
+		from
+		tb_chanyue_chong_platform
+	</select>
+
+	<select id="getParList" parameterType="par" resultType="par">
+		select *
+		from
+		tb_chanyue_chong_par t where
+		t.gid = #{gid} and t.oid = #{oid} and
+		t.tid = #{tid}
+		order by
+		t.price asc
+	</select>
+
+	<select id="getServerList" parameterType="Server" resultType="Server">
+		select *
+		from
+		tb_chanyue_chong_server t where
+		t.gid = #{gid} and t.oid =
+		#{oid} and t.aid= #{aid} order by
+		cast(t.num as signed) asc
+	</select>
+
+	<select id="getAreaList" parameterType="Area" resultType="Area">
+		select
+		*
+		from
+		tb_chanyue_chong_area t where
+		t.gid = #{gid} and t.oid =
+		#{oid}
+	</select>
+
+	<select id="getOperatorById" parameterType="Integer" resultType="Operator">
+		select *
+		from
+		tb_chanyue_chong_operator t where
+		t.id = #{id}
+	</select>
+
+	<select id="getServerById" parameterType="Integer" resultType="Server">
+		select *
+		from
+		tb_chanyue_chong_server t where
+		t.id = #{id}
+	</select>
+
+	<select id="getPlatformById" parameterType="Integer" resultType="Platform">
+		select *
+		from
+		tb_chanyue_chong_platform t where
+		t.id = #{id}
+	</select>
+
+	<select id="paymentOrder" parameterType="Payment">
+		call
+		pro_payment_order(#{tsn}, #{backCode}, #{bankType}, #{bankBillno},
+		#{remark}, #{orderId}, #{id}, #{actual})
+	</select>
+</mapper>

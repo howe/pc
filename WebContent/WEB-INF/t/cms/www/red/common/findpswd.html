@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/topfoot.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/form.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.validator.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.js"></script>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.validator.zh_CN.js"></script>
+<script charset="utf-8" lang="zh" language="javascript">
+    document.onkeydown=function(event){ 
+        e = event ? event :(window.event ? window.event : null); 
+        if(e.keyCode==13){ 
+            document.getElementById("signSum").click();
+        } 
+    }
+</script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+<title>密码找回 - fakafa.com</title>
+<meta name="keywords" content="游戏交易平台，手机游戏交易，app充值，游戏币交易，网络游戏，游戏币，点卡，装备，账号，fakafa，fakafa.com" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，手游充值，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" />
+</head>
+<body>
+	<div class="form-wrap">
+		<div class="form-head-box">
+			<div class="form-head-top">
+				<div class="form-logo">
+					<a href="//www.fakafa.com"><img src="//static.fakafa.com/images/logo/form-logo.gif" alt="发卡发手游服务平台" /></a>
+				</div>
+				<div class="head-login status-login">
+					<a href="/"> 首页 </a> <span></span> 
+					<a href="/apple.html">游戏</a> <span></span>
+					<a href="/register.html">注册</a>
+				</div>
+			</div>
+			<div class="form-nav">
+				<ul>
+					<li><a href="/">首页</a></li>
+					<li><a href="/apple.html">充值中心</a></li>
+					<li><a href="/user/index.html">用户中心</a></li>
+					<li class="current"><a href="/findpswd.html">密码找回</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-content">
+			<div class="tang-pass-reg">
+				<div class="form-title">
+					<h2>密码找回</h2>
+				</div>
+				<div class="go-email-box">
+					<div class="pass-find">
+						<form action="/findpswd.jspx" class="registerform passform" id="findpswdForm" method="post" autocomplete="off" data-validator-option="{theme:'yellow_right_effect',stopOnError:true}">
+							<table>
+								<tr>
+									<td class="user">要找回的帐号：</td>
+									<td>
+										<input type="text" id="email" name="email" class="inputxt" maxlength="20" placeholder="请输入电子邮件" data-rule="required;email;remote[/verifyEmail.jspx]" />
+									</td>
+									<td>
+                                    </td>
+								</tr>
+								<tr class="pw-question" style="z-index: 900">
+									<td class="text-right">验证方式：</td>
+									<td>
+										<select class="box-select" id="type" name="type" data-rule="验证方式: required;" disabled="disabled">
+											<option value="">请选择验证方式</option>
+											<option value="1" selected="selected">邮箱验证</option>
+											<option value="2">密保验证</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type="submit" name="signSum" id="signSum" class="user-btn pw-btn" value="提 交" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-top"></div>
+		 <div class="bufan_foot_bg">
+		    <div class="bufan_foot_black"><a href="/bangzhu/20141129/6.html" target="_blank" title="关于我们">关于我们</a> | <a href="#" target="_blank" title="招聘信息">招聘信息</a> | <a href="/kefu/20141129/8.html" target="_blank" title="联系我们">联系我们</a> | <a href="/kefu/20141129/9.html" target="_blank" title="意见反馈">意见反馈</a><br />
+		      <span>Copyright © 2014-2015 fakafa.com, All Rights Reserved. fakafa&trade;手游服务平台 版权所有  ICP证：<a href="http://www.miitbeian.gov.cn" target="_blank">苏ICP备14051286号</a></span></div>
+		  </div>
+		  <div style="display: none;"> 
+		   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254049203'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254049203' type='text/javascript'%3E%3C/script%3E"));</script>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我购买的订单-fakafa手游服务中心</title>
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Personal.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+<style type="text/css">
+.header {
+	height: 105px;
+}
+</style>
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/jquery.fancybox.2.1.5.css" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery.fancybox.2.1.5.js"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			$('.fancybox').fancybox();
+		});
+</script>
+</head>
+<body>
+[#include "../common/top.html"/]
+	<div class="header">
+		<div class="left"><a href="//www.fakafa.com/"><img src="//static.fakafa.com/images/logo/logo_pro.png" alt="发卡发手游服务平台" /></a></div>
+		[#include "../common/search.html"/]
+	</div>
+	<div class="Navigation">
+		<div class="center Part">
+			<ul>
+				<li>
+				<li><a href="/">首页</a> <a class="hot" href="/apple.html">充值中心</a>
+					<a target="_blank" href="#">客服中心</a> <a target="_blank" href="/bangzhu/">帮助中心</a>
+					<a href="/user/index.html" style="background: #2c977d;">个人中心</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+	<div class="center yxlb">
+		您的当前位置是：<a href="/">首页</a> - <a href="/user/index.html" class="ls">个人中心</a>
+	</div>
+	<div class="clear"></div>
+	<div class="center">
+		[#include "../common/userLeft.html"/]
+		<div class="personal_right">
+			<div class="ddgl">
+				<h1>我购买的订单</h1>
+				<form id="queryForm">
+					<div class="yxddlb">
+						<div class="ddxq">
+							<ul>
+								<li class="spmc">商品名称</li>
+								<li class="zj">总价</li>
+								<li class="sl">数量</li>
+								<li class="khfw">客服服务</li>
+								<li class="ddzt">订单状态</li>
+							</ul>
+						</div>
+						<div id="menud_con">
+						[#if trades?size gt 0]
+							[#list trades as order]
+							<div class="ddlb">
+									<h1>
+										订单编号：${(order.id) ! ''} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;创建时间：${(order.orderTime)?string("yyyy-MM-dd HH:mm")}
+										14:15 <span
+											style="float: right; color: red; margin: 0 7px 0 0; *margin: -30px 7px 0 0;">
+	
+										</span>
+									</h1>
+									<ul goodsid="900377" ver="1" gtid="100106" gameid="A1072">
+										<ol class="spmc">
+											<span style="color: #36c"> <img
+												src="//static.fakafa.com/images/css/icon/${(order.plid) ! '1'}.png" />
+												<a href="[#if (order.plid) == 1]/buy-i-${(order.gid) ! '0'}.html[#elseif (order.plid) == 2]/buy-a-1-${(order.gid) ! '0'}.html[#elseif (order.plid) == 3]/buy-o-${(order.gid) ! '0'}.html[#elseif (order.plid) == 4]/buy-w-${(order.gid) ! '0'}.html[#else]#[/#if]" target="_bank">
+												${(order.face)!''}元（${(order.standard)!''}） ${(order.OName)!''} ${(order.AName)!''} ${(order.num)!''}区【${(order.SName)!''}】</a>
+											</span>
+											<br /> <font style="color:#aaa">${(order.type)!''}${(order.GName)!''}/${(order.AName)!''}/${(order.OName)!''}/${(order.num)!''}服【${(order.SName)!''}】</font>
+										</ol>
+										<ol class="zj">
+											<span style="color: #F90">${(order.price)*(order.quantity)}</span>元
+										</ol>
+										<ol class="sl">${(order.quantity) ! '0'}
+										</ol>
+										<ol class="khfw"><a target="_black" href="http://wpa.qq.com/msgrd?v=3&uin=fakafa3366&site=qq&menu=yes" title="联系客服"><img
+												src="//static.fakafa.com/images/css/icon/kefu.png" />联系客服</a></ol>
+										<ol class="ddzt">											
+											[#if (order.status) =='0']
+											<a title="如需要，请在下单后30分钟内付款，超时系统将自动取消订单">等待付款</a>
+											<br />
+											<a class="cs"
+												href="/payment.jspx?id=${(order.id) ! '0'}" title="付款去" target="_bank"><img
+												src="//static.fakafa.com/images/css/nbtn.png"
+												width="69" height="21" /></a>
+											<br />
+											[#elseif (order.status) =='1']
+											<a title="已完成付款，请等待发货">完成付款</a>
+											<br />
+											[#elseif (order.status) =='2']
+											<a title="已完成充值，请去订单详情查看">订单完成</a>
+											<br />
+											[#elseif (order.status) =='3']
+											<a title="下单超过30分钟未支付，超时系统自动取消订单，如若需要，请重新下单">订单取消</a>
+											<br />
+											[#elseif (order.status) =='4']
+											<a title="充值信息异常无法联系客户或者其他原因，钱款会原路返还">订单撤销</a>
+											<br />
+											[#else]
+											<a title="订单状态异常">订单未知</a>
+											<br />
+											[/#if]
+											<a class="fancybox fancybox.iframe"
+												href="/user/info.jspx?id=${(order.id) ! ''}" title="点击查看订单详情">订单详情</a>
+										</ol>
+									</ul>
+								</div>
+								[/#list] 
+						[/#if]		
+						</div>
+						<div class="cpfy">
+							<dl currentNo="0" pageCount="1" totalRecords="2">
+								<dd class="fy_l">上一页</dd>
+								<dd class="fy2" onclick="return locatePage(0);">1</dd>
+								<dd class="fy_r">下一页</dd>
+								<dd>
+									<span>共1页</span>
+								</dd>
+							</dl>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!--  -->
+	<!--底部开始-->
+	<div class="clear"></div>
+	<div class="center" style="border-bottom: 1px solid #CAC9C9; width: 100%; height: 1px; margin-top: 10px;"></div>
+	[#include "../common/foot.html"/]
+</body>
+</html>

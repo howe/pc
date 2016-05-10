@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="cn.com.chanyue.dao.member.RealAuthDao">
+	<select id="queryRealAuth" parameterType="Integer" resultType="RealAuth">
+		select *
+		from
+		tb_chanyue_common_realauth t where t.uid = #{uid}
+	</select>
+
+	<insert id="addRealAuth" parameterType="RealAuth">
+		insert into
+		tb_chanyue_common_realauth(uid, realName, idCard, status,
+		addTime)
+		values(#{uid},
+		#{realName}, #{idCard}, 0, now())
+	</insert>
+
+	<update id="updateRealAuth" parameterType="Integer">
+		update
+		tb_chanyue_common_realauth set status = 1, authTime = now() where uid
+		= #{uid}
+	</update>
+</mapper> 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="cn.com.chanyue.dao.member.OperLogsDao">
+	<select id="getOperTotalNum" parameterType="Integer" resultType="Integer">
+		select count(*)
+		from
+		tb_chanyue_common_oper_logs t where
+		t.uid = #{uid}
+	</select>
+
+	<select id="getOperLogs" parameterType="Page" resultType="OperLogs">
+	<![CDATA[
+		select * from tb_chanyue_common_oper_logs where uid=#{uid} and id <=
+		(select id from tb_chanyue_common_oper_logs where uid=#{uid} order by
+		operdate desc limit #{tmp}, 1) order by operdate desc limit #{num}
+	]]>
+	</select>
+
+	<insert id="insertOperLogs" parameterType="OperLogs">
+		insert into
+		tb_chanyue_common_oper_logs(uid, action, ip, operDate) values(#{uid},
+		#{action}, #{ip}, now())
+	</insert>
+</mapper> 

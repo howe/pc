@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>公告中心 - 发卡发手游服务平台</title>
+<meta name="keywords" content="fakafa，fakafa.com，fakafa游戏官网，游戏币交易，游戏交易平台，网络游戏，游戏币，点卡，装备，账号" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/help.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="shortcut icon" href="http://static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+</head>
+<body>
+<!--  -->
+<!--头部开始-->
+<div class="center logo">
+	<div class="left"> <a href="/"><img src="//static.fakafa.com/images/logo/news-logo.gif" alt="发卡发手游服务平台"></a></div>
+	<div class="help_top">
+		<ul>
+			<li style="text-align: right">
+				<span style="font-size: 16px; font-weight: bold;">客户服务热线：</span><span
+					style="font-size: 24px; font-weight: bold; color: #CF1212">400-01-fakafa</span>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="center">
+<section class="W950 mainWrap pusht">
+	<section class="w950 pusht clearfix">
+		<aside class="navL">
+			<ul class="list3">
+				<li class="selected" onclick="showNews(4)"><i class="action"></i><a href="/gonggao/">公告中心</a></li>
+				<li><i class="action"></i><a href="/bangzhu/">常见问题</a></li>
+				<li><i class="action"></i><a href="/kefu/">客服中心</a></li>
+				<a style="cursor:pointer" href="/youxi/"><li><i class="action"></i>游戏资讯</li></a>
+			</ul>
+		</aside>
+	<article class="mainR" id="block1">
+		<h1>公告中心</h1>
+		<div class="rCont">
+			<ul>
+				[@cms_content_page count=channel.pageSize orderBy='4' channelId=channel.id titLen='36' append='...' channelOption='1']  
+            	[#list tag_pagination.list as a]
+					<li>
+						<span class="right"><a href="//www.fakafa.com${a.url}" style="background-color: #37bd9c;color: #fff;height: 18px;padding: 3px 8px 3px 8px;">查看详情 >></a></span>
+						<a href="${(a.url)?replace('//', '/')}">[@text_cut s=a.title len=titlen append=append/]</a>(${a.sortDate?string("yyyy-MM-dd HH:mm")})
+					</li>
+				[/#list]
+			</ul>
+			
+			
+			<div class="pusht" id="divv">
+			
+<style type="text/css">
+.pagination a, .pagination span {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 2px 8px;
+}
+.pagination a {
+    border: 1px solid #CCCCCC;
+    color: #FF6600;
+}
+/*
+a, a:visited {
+    color: #333;
+    cursor: pointer;
+    outline: medium none;
+    text-decoration: none;
+}*/
+</style>
+<div id="Pagination" class="pagination pusht" style="float: right;vertical-align: middle;margin-top: 10px;" currentNo="0" pageCount="6" totalRecords="52">
+	[@cms_pagination sysPage='1'/]		
+</div>
+			</div>
+			[/@cms_content_page]
+		</div>
+	</article>
+	</section>
+</section>
+</div>
+<!--  -->
+<!--底部开始-->
+<div class="clear"></div>
+<div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+<div class="clear"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

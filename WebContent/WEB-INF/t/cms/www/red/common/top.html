@@ -1,0 +1,43 @@
+<div class="top_box">
+<div class="top"><!--顶部区域-->
+   <div class="top_l left">
+   	<dl>
+   		<span id="span_user">
+   			[#if user??]
+   				<dt><a href="/user/index.html" style="color: #36c" rel="nofollow" title="${(user.email)!''}">[#if (user.email)?index_of("@quicklogin.qq")!=-1]QQ用户_[#elseif (user.email)?index_of("@quicklogin.weixin")!=-1]微信用户_[#elseif (user.email)?index_of("@quicklogin.360")!=-1]360用户_[#elseif (user.email)?index_of("@quicklogin.alipay")!=-1]支付宝用户_[#elseif (user.email)?index_of("@quicklogin.weibo")!=-1]微博用户_[#elseif (user.email)?index_of("@quicklogin.unionpay")!=-1]银联用户_[#else]${(user.email)!'游客'}[/#if]${(user.nickName)!''}</a>，欢迎回来！</dt><dt class="top_grayline">|</dt><dt><a href="/logout.html" rel="nofollow">退出</a></dt>
+   			[#else]   				
+   				<dt>你好！欢迎访问fakafa</dt><dt class="top_grayline">|</dt><dt><a href="/login.html" class="blue" rel="nofollow">登录</a></dt><dt class="top_grayline">|</dt><dt><a href="/register.html" class="blue" rel="nofollow">免费注册</a></dt><dt class="top_grayline">|</dt><dt><a href="/login/qq.jspx"rel="nofollow" title="QQ帐号登录"><img title="QQ帐号登录" alt="QQ帐号登录" src="//static.fakafa.com/images/icon/quicklogin/s_qq.png" width="16" height="16" /></a>&nbsp;<a href="/login/weixin.jspx"rel="nofollow" title="微信扫码登录"><img title="微信扫码登录" alt="微信扫码登录" src="//static.fakafa.com/images/icon/quicklogin/s_weixin.png" width="16" height="16" /></a>&nbsp;<a href="/login/alipay.jspx" rel="nofollow" title="支付宝快捷登录"><img title="支付宝快捷登录" alt="支付宝快捷登录" width="16" height="16" src="//static.fakafa.com/images/icon/quicklogin/s_alipay.png" /></a>&nbsp;<a href="/login/weibo.jspx" rel="nofollow" title="微博登录"><img alt="微博登录" title="微博登录" src="//static.fakafa.com/images/icon/quicklogin/s_weibo.png" width="16" height="16" /></a>&nbsp;<a href="/login/qihu.jspx" rel="nofollow" title="微博登录"><img alt="360账号登录" title="360账号登录" width="16" height="16" src="//static.fakafa.com/images/icon/quicklogin/s_qihu.png" /></a></dt>
+   			[/#if]
+   			
+   		</span>
+   	</dl>
+   </div><!--顶部左侧-->
+  
+   <div class="top_r right"><!--顶部右侧-->
+       <dl>
+	      <dt><a href="/" rel="nofollow">首页</a></dt>
+		  <dt class="top_grayline">|</dt>
+		  <dt><a class="green" href="/user/index.html" rel="nofollow">个人中心</a></dt>
+		  <dt class="top_grayline">|</dt>
+		  <dd class="subNav"><a href="/kefu/20141129/7.html" rel="nofollow">家长监护</a>
+		  	<ul id="hide_nav">
+			     <li><a href="/kefu/20141218/13.html" target="_blank"  title="监护服务申请" rel="nofollow">监护服务申请</a></li>
+			</ul>
+		  </dt>
+		  <dt class="top_grayline">|</dt>
+		  <dd class="subNav"><a href="javascript:void(0);" rel="nofollow">服务中心</a>
+		      <ul id="hide_nav">
+			     <li><a href="http://wpa.qq.com/msgrd?v=3&uin=fakafa3366&site=qq&menu=yes" target="_blank"  title="联系在线客服" rel="nofollow">在线客服</a></li>
+			     <li><a href="/gonggao/" rel="nofollow">公告中心</a></li>
+				 <li><a href="/bangzhu/" rel="nofollow">帮助中心</a></li>
+				 <li><a href="/kefu/" rel="nofollow">客服中心</a></li>
+				 <li><a href="/youxi/" rel="nofollow">游戏资讯</a></li>
+			  </ul>
+		  </dd>
+	      <dt class="top_grayline">|</dt>
+	      <dt><a href="/" rel="nofollow" title="客服电话">客服电话 <font class="red" style="font-size: 15px">400-01-fakafa</font> (无外拨功能)</a></dt>
+		  </dt>
+     </dl>  
+   </div>
+</div>
+</div>

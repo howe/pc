@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单编号${(order.id) ! ''}-fakafa手游服务中心-订单详情</title>
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/ibuy.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/release.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/buy.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+<style type="text/css">
+.ddxx{ border:solid #2c977d 2px; padding-top:30px; padding-left:40px; }
+</style>
+</head>
+<body>
+<!--头部开始-->
+<div class="header"><!--头部-->
+  <div class="logo"><a href="//www.fakafa.com/apple.html"><img src="//static.fakafa.com/images/logo/logo_column.png" alt="发卡发手游服务平台"/></a></div>
+  <div class="logo_wri">手游充值中心</div>
+  <div class="Process right">
+    <ul>
+      <li>
+        <p class="gc">1</p>
+        <p class="green_2">填写资料</p>
+      </li>
+      <li>
+        <p class="gc">2</p>
+        <p class="green_2">在线付款</p>
+      </li>
+      <li>
+        <p class="gc">3</p>
+        <p class="green_2">确认收货</p>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--头部结束-->
+<div class="clear"></div>
+<div class="center">
+<div class="clear"></div>
+	<div class="center">
+		<div class="ddwt">
+			<div class="ddxx">
+				<ul>
+					<li>订单编号：<span>${(order.id) ! ''}</span>&nbsp;&nbsp;&nbsp;</li>
+					<li>提交时间：<span>${(order.orderTime)?string("yyyy-MM-dd HH:mm")}</span>&nbsp;&nbsp;&nbsp;</li>
+					<li>商品标题：<a class="green_2" href="[#if (order.plid) == 1]/buy-i-${(order.gid) ! '0'}.html[#elseif (order.plid) == 2]/buy-a-1-${(order.gid) ! '0'}.html[#elseif (order.plid) == 3]/buy-o-${(order.gid) ! '0'}.html[#elseif (order.plid) == 4]/buy-w-${(order.gid) ! '0'}.html[#else]/[/#if]" target="_bank">${(order.type)!''} ${(order.face)!''}元（${(order.standard)!''}）${(order.GName)!''} ${(order.OName)!''} ${(order.AName)!''} ${(order.num)!''}区【${(order.SName)!''}】</a></li>
+					<li>充值帐号：<span><font class="red">${(order.account)!''}</font></span>&nbsp;&nbsp;&nbsp;</li>
+					<li>角色名称：<span><font class="red">${(order.juese)!''}</font></span>&nbsp;&nbsp;&nbsp;</li>
+					[#if (order.type) == '安卓首充号']
+					<li>帐号密码：<span><font class="red">${(order.pswd)!''}</font></span>&nbsp;&nbsp;&nbsp;</li>
+					<li>帐号信息：<span><font class="red">${(hao)!''}</font></span></li>
+					[/#if]
+					<li>联系方式：<img src="//static.fakafa.com/images/css/icon/mobile.png" /><span>${(order.mobile)!''}</span>&nbsp;&nbsp;&nbsp;<img src="//static.fakafa.com/images/css/icon/qq.png" /><span>${(order.qq)!''}</span>&nbsp;&nbsp;&nbsp;</li>
+					<li>订单状态：<img src="//static.fakafa.com/images/css/order/${(order.status)!'0'}.png" /><span><font class="green">${(order.status)!''}</font></span>&nbsp;&nbsp;&nbsp;</li>
+					<li>备注：<span>${(order.remark)!''}</span>&nbsp;&nbsp;&nbsp;</li>
+					<li style=" padding-top:50px; padding-bottom:0px; text-align:center;"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--底部开始-->
+<div class="clear"></div>
+<div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

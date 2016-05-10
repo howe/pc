@@ -1,0 +1,21 @@
+<div class="personal_center">
+	<ul>
+		<ol>
+          <img width="95" height="95" src="${(user.avatar)!'//static.fakafa.com/images/css/userIcon.jpg'}" title="头像"/>
+		</ol>
+	</ul>
+	<ul>
+		<li><strong class="f16 left" title="${(user.email)!'游客'}">[#if (user.email)?index_of("@quicklogin.qq")!=-1]QQ用户_[#elseif (user.email)?index_of("@quicklogin.weixin")!=-1]微信用户_[#elseif (user.email)?index_of("@quicklogin.360")!=-1]360用户_[#elseif (user.email)?index_of("@quicklogin.alipay")!=-1]支付宝用户_[#elseif (user.email)?index_of("@quicklogin.weibo")!=-1]微博用户_[#elseif (user.email)?index_of("@quicklogin.unionpay")!=-1]银联用户_[#else]${(user.email)!'游客'}[/#if]${(user.nickName)!''}</strong><span class="left">，欢迎你！</span>
+			<p class="gray_2 clearfix">上次登录时间：[#if (loginLogs.loginDate)?? ]${(loginLogs.loginDate)?string("yyyy-MM-dd HH:mm:ss")}[#else]未登录[/#if] 上次登录IP：<a target="_bank" href="http://ip.cn/ip-${(loginLogs.ip)!''}.html" title="点击查看IP地区">${(loginLogs.ip)!'未登录'}</a> (不是您登录的？ <a class="green_2" href="/user/modifypswd.jspx" target="_blank">修改密码</a>)</p>
+        </li>
+        <li class="mjtx"><img src="//static.fakafa.com/images/css/icon/e_l.png" width="16" /> <a class="ls" href="/user/index.html">注册用户</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="//static.fakafa.com/images/css/icon/v_l.png" width="16" /> <a class="ls" href="/user/realauth.html">[#if realAuth??]已认证[#else]未认证[/#if]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="//static.fakafa.com/images/css/icon/email_l.png" width="16" /> <a class="ls" href="/user/verifyemail.html">已验证邮箱</a> </li>
+        <div class="mjtx">
+          <dl>
+            <dd> <span style="color:#999;margin-left:12px; ">余额账户：</span> <strong id="strong_cgye" class="yellow"> 0.00 </strong> 元 </dd>
+          </dl>
+          <dl>
+            <dd> <a href="/user/trade.html" class="yscztx">查看明细</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/apple.html" class="yscztx">充值</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=fakafa3377&site=qq&menu=yes" class="yscztx">退款</a> </dd>
+          </dl>
+        </div>
+	</ul>
+</div>

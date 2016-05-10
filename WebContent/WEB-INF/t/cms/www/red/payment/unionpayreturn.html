@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fakafa游戏交易平台-支付</title>
+<meta name="keywords" content="游戏交易平台，手机游戏交易，app充值，游戏币交易，网络游戏，游戏币，点卡，装备，账号，fakafa，fakafa.com" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，手游充值，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" /
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/payment.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/ibuy.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+function changePayway(payway){
+		$('#div_pay_way').find('a').removeClass('current');
+		$('#hlk_'+payway).addClass('current');
+		$('#div_pay_way_detail_list ul').hide();
+		$('#ul_'+payway).show();
+	}
+</script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->    
+</head>
+<body>
+<!--头部开始-->
+<div class="header">
+	<div class="logo"><a href="//www.fakafa.com/"><img src="//static.fakafa.com/images/logo/logo_column.png" alt="91058手游服务平台"/></a></div>
+	<div class="logo_wri">收银台</div>
+	<div class="Process right">
+		<ul>
+			<li><p class="bg">1</p><p class="gray_a">填写收货信息</p></li>
+			<li><p class="bg">2</p><p class="gray_a">在线付款</p></li>
+			<li><p class="gc">3</p><p class="green_2">交易完成</p></li>
+		</ul>
+	</div>
+</div>
+
+<div class="W980">
+		<div class="blue_kuang">
+			<span class="text bold"><font class="bold blue">订单编号：</font>№<font class="orange">${(order.id)!''}</font></span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="green_2">${(order.type)!''}</font> ${(order.face)!''}元(${(order.standard)!''}) × <font class="red">${(order.quantity)!''}</font> ${(order.GName)!''}${(order.PName)!''} ${(order.OName)!''} ${(order.AName)!''}${(order.num)!''}服【${(order.SName)!''}】</span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;充值帐号：<font class="red">${(order.account)!''}</font></span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付方式：银联在线(${(bank_type)!''}) - <a class="green_2" target="_bank" title="查看财付通详情" href="https://www.tenpay.com/v2/trade/trade_info.shtml?b=1&list_status=0&trans_id=${(transaction_id)!''}">${(transaction_id)!''}</a></span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付状态：<font class="bold red">${(trade_state)!''}</font></span>
+            [#if pay_info??]<span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付备注：${(pay_info)!''}</span>[/#if]
+			<span class="right bold">支付金额：<em class="pushr5"><label id="payValue">${total!'0'}</label></em>元</span>
+		</div>
+	<div class="recharge_problem clearfix">
+		<h4 class="font_14 orange">支付遇到问题：</h4>
+		<dl>
+			<dt>1.支付失败怎么办？</dt>
+			<dd>答：fakafa支持多种在线付款方式，您可以选择其他网银或第三方支付平台付款，或者稍后重试。</dd>
+			<dt>2.支付成功，但订单状态未改变，怎么办？</dt>
+			<dd>答：银行或三方支付公司对接有延迟，如确定有问题可以联系<a href="http://wpa.qq.com/msgrd?v=3&uin=fakafa3366&site=qq&menu=yes" target="_blank" class="orange">我们的客服</a>，来处理问题。</dd>
+		</dl>
+	</div>
+</div>
+
+<div class="clear"></div>
+<div class="clear"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

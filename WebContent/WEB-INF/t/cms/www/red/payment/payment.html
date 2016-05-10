@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fakafa游戏交易平台-支付</title>
+<meta name="keywords" content="游戏交易平台，手机游戏交易，app充值，游戏币交易，网络游戏，游戏币，点卡，装备，账号，fakafa，fakafa.com" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，手游充值，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" /
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/payment.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/ibuy.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+function changePayway(payway){
+		$('#div_pay_way').find('a').removeClass('current');
+		$('#hlk_'+payway).addClass('current');
+		$('#div_pay_way_detail_list ul').hide();
+		$('#ul_'+payway).show();
+	}
+</script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->    
+</head>
+<body>
+<!--头部开始-->
+<div class="header">
+	<div class="logo"><a href="//www.fakafa.com/"><img src="http://static.fakafa.com/images/logo/logo_column.png" alt="发卡发手游服务平台"/></a></div>
+	<div class="logo_wri">收银台</div>
+	<div class="Process right">
+		<ul>
+			<li><p class="bg">1</p><p class="gray_a">填写收货信息</p></li>
+			<li><p class="gc">2</p><p class="green_2">在线付款</p></li>
+			<li><p class="bg">3</p><p class="gray_a">交易完成</p></li>
+		</ul>
+	</div>
+</div>
+
+<div class="W980">
+	<form id="payForm" method="post" autocomplete="off" action="/payment.jspx">
+		<div class="blue_kuang">
+			<span class="text bold"><font class="bold blue">订单编号：</font>№<font class="orange">${(order.id)!''}</font></span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="green_2">${(order.type)!''}</font> ${(order.face)!''}元（${(order.standard)!''}）× <font class="red">${(order.quantity)!'1'}</font> ${(order.GName)!''}${(order.PName)!''} ${(order.OName)!''} ${(order.AName)!''} ${(order.num)!''}服【${(order.SName)!''}】</span>
+            <span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;充值帐号：<font class="red">${(order.account)!'*随机生成*'}</font></span>
+            [#if (order.type) == '安卓首充号']<span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帐号信息：${hao!''}</span>[/#if]
+			<span class="text bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色名称：<font class="red">${(order.juese)!''}</font></span>
+			<span class="right bold">订单金额：<em class="pushr5">${(order.price)!'0'} × ${(order.quantity)!'0'} = <label id="payValue">${(order.price)*(order.quantity)}</label></em>元</span>
+		</div>
+		<div class="form">
+			<ul>
+			</ul>
+		</div>
+		<div id="div_pay_way" class="tab_status">
+			<span class="left padr">付款方式：</span>
+			<a id="hlk_thirdpay" class="current" onclick="javascript: return changePayway('thirdpay');">第三方支付</a>
+		    <!--  	<a id="hlk_creditcard" onclick="javascript: return changePayway('creditcard');">网银支付</a>  -->
+			<a id="hlk_savecard" onclick="javascript: return changePayway('savecard');">网银支付</a>
+		</div>
+		<div id="div_pay_way_detail_list" class="tab_blue_kuang">
+            <ul id="ul_thirdpay" class="tab_bank" >
+				<!--<li><input type="radio" name="payid" value="1001" fptname="支付宝" checked="checked"/><label class="bank alipay"></label></li>
+				<li><input type="radio" name="payid" value="1007" fptname="银联在线" disabled="disabled" /><label class="bank unionpay"></label></li>
+				<li><input type="radio" name="payid" value="1002" fptname="财付通" disabled="disabled" /><label class="bank tenpay"></label></li>
+				<li><input type="radio" name="payid" value="1006" fptname="快钱" disabled="disabled" /><label class="bank kuaiqian"></label></li>			
+				<li><input type="radio" name="payid" value="1008" fptname="拉卡拉" disabled="disabled" /><label class="bank lakala"></label></li>
+				<li><input type="radio" name="payid" value="1009" fptname="网银钱包" disabled="disabled" /><label class="bank wangyin"></label></li>
+				<li><input type="radio" name="payid" value="1010" fptname="微信支付" disabled="disabled" /><label class="bank weixin"></label></li>
+				<li><input type="radio" name="payid" value="1011" fptname="百度支付" disabled="disabled" /><label class="bank baidu"></label></li>
+				<li><input type="radio" name="payid" value="1012" fptname="E招付" disabled="disabled" /><label class="bank ezhaofu"></label></li>-->
+			</ul>
+			<ul id="ul_savecard" class="tab_bank" style="display: none;">
+				<!--<li><input type="radio" name="payid" value="1013" fptname="中国银行" /><label class="bank boc"></label></li>
+				<li><input type="radio" name="payid" value="1014" fptname="中国工商银行" /><label class="bank icbc"></label></li>
+				<li><input type="radio" name="payid" value="1016" fptname="中国建设银行" /><label class="bank ccb"></label></li>
+				<li><input type="radio" name="payid" value="1015" fptname="招商银行" /><label class="bank cmb"></label></li>
+				<li><input type="radio" name="payid" value="1017" fptname="中国农业银行" /><label class="bank abc"></label></li>
+				<li><input type="radio" name="payid" value="1018" fptname="上海浦东发展银行" /><label class="bank spdb"></label></li>
+				<li><input type="radio" name="payid" value="1019" fptname="兴业银行" /><label class="bank isb"></label></li>
+				<li><input type="radio" name="payid" value="1025" fptname="中国邮政储蓄银行" /><label class="bank psbc"></label></li>
+				<li><input type="radio" name="payid" value="1027" fptname="中国光大银行" /><label class="bank ceb"></label></li>
+				<li><input type="radio" name="payid" value="1028" fptname="交通银行" /><label class="bank bocc"></label></li>
+				<li><input type="radio" name="payid" value="1020" fptname="广发银行" /><label class="bank cgb"></label></li>
+				<li><input type="radio" name="payid" value="1029" fptname="中国民生银行" /><label class="bank cmbc"></label></li>
+				<li><input type="radio" name="payid" value="1021" fptname="中信银行" /><label class="bank ccib"></label></li>
+				<li><input type="radio" name="payid" value="1022" fptname="平安银行" /><label class="bank pingan"></label></li>
+				<li><input type="radio" name="payid" value="1030" fptname="北京银行" /><label class="bank bbj"></label></li>-->
+			</ul>
+			<!--<ul id="ul_creditcard" class="tab_bank" style="display: none;">
+				<li><input type="radio" name="payid" value="2005" fptname="中国工商银行" disabled="disabled" /><label class="bank bank_2005"></label></li>
+				<li><input type="radio" name="payid" value="2007" fptname="中国农业银行" disabled="disabled" /><label class="bank bank_2007"></label></li>
+				<li><input type="radio" name="payid" value="2006" fptname="招商银行" disabled="disabled" /><label class="bank bank_2006"></label></li>
+				<li><input type="radio" name="payid" value="2008" fptname="交通银行" disabled="disabled" /><label class="bank bank_2008"></label></li>
+				<li><input type="radio" name="payid" value="2011" fptname="中国银行" disabled="disabled" /><label class="bank bank_2011"></label></li>
+			</ul>
+			  -->
+			<div class="text clearfix">请确保您的卡已开通网上支付，否则将无法支付成功。订单提交后，请在30分钟内完成支付，超时系统会自动取消订单。</div>
+		<!-- <div class="pay_next"><input type="hidden" name="orderid" id="orderid" value="${(order.id)!''}" /><input type="submit" id="submitBtn" name="submitBtn" class="btn btn-orange2" value="支付订单" /></div> -->	
+		</div>
+	</form>
+	<div class="recharge_problem clearfix">
+		<h4 class="font_14 orange">支付遇到问题：</h4>
+		<dl>
+			<dt>1.如何在线支付？</dt>
+			<dd>答：fakafa支持多种在线付款方式，您只需登录网银或第三方支付平台付款成功后，即可完成支付流程。</dd>
+			<dt>2.我没有开通的网上银行或第三方支付平台，怎么办？</dt>
+			<dd>答：您可进入“个人中心”后选择“<a href="#" target="_blank" class="orange">充值</a>”，我们提供更多方式的账户充值服务，再进入购买流程使用账户余额付款。</dd>
+		</dl>
+	</div>
+</div>
+
+<div class="clear"></div>
+<div class="clear"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

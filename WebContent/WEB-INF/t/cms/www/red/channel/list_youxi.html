@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>游戏资讯 - 发卡发手游服务平台</title>
+<meta name="keywords" content="fakafa，fakafa.com，fakafa游戏官网，游戏币交易，游戏交易平台，网络游戏，游戏币，点卡，装备，账号" />
+<meta name="description" content="fakafa是国内最专业手游充值服务,提供各种游戏币，装备，账号，点卡交易信息,欢迎来到发卡发手游服务平台" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/help.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/news.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="center logo">
+	<div class="left"> <a href="/"><img src="//static.fakafa.com/images/logo/news-logo.gif" alt="发卡发手游服务平台"></a></div>
+	<div class="help_top">
+		<ul>
+			<li style="text-align: right">
+				<span style="font-size: 16px; font-weight: bold;">客户服务热线：</span>
+				<span style="font-size: 24px; font-weight: bold; color: #CF1212">400-01-fakafa</span>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="Navigation">
+<div class="center Part">
+<ul>
+<li>
+<a href="/">首页</a>
+<a class="hot" href="/apple.html">充值中心</a>
+<a target="_blank" href="/kefu/" style="background:#2c977d;">客服中心</a>
+<a target="_blank" href="/bangzhu/">帮助中心</a>
+<a href="/user/index.html">个人中心</a>
+</li>
+</ul>
+</div>
+</div>
+<!--头部结束-->
+<div class="clear"></div>
+<div class="center">
+<div class="security_knowledge">
+<ul>
+<h3>游戏资讯</h3>
+<li><a id="a1" href="/bangzhu/" class="category">常见问题</a> <a id="a2" href="/kefu/" class="category">客服中心</a> <a id="a3" href="/youxi/" class="category category_select">游戏资讯</a> <a id="a4" href="/gonggao/" class="category">公告中心</a></li>
+</ul>
+</div>
+</div>
+
+<div class="center">
+<div id="knowledgeListDiv" class="security_knowledge_news" style="display:block">
+<h3>相关问题</h3>
+<div class="knowledge_news">
+[@cms_content_page count=channel.pageSize orderBy='4' channelId=channel.id titLen='36' append='...' channelOption='1']  
+    [#list tag_pagination.list as a]
+	<ul>
+		<li>
+			<a href="${(a.url)?replace('//', '/')}" class="ls" target="_blank">[@text_cut s=a.title len=titlen append=append/]</a>
+		</li>
+	</ul>
+	[/#list]
+	<ul style="text-align:right;">
+	[@cms_pagination sysPage='1'/]
+	</ul>
+[/@cms_content_page]
+</div>
+</div>
+</div>
+<!--  -->
+<!--底部开始-->
+<div class="clear"></div>
+<div class="center" style="border-bottom:1px solid #CAC9C9; width:100%; height:1px; margin-top:10px;"></div>
+<div class="clear"></div>
+[#include "../common/foot.html"/]
+</body>
+</html>

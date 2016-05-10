@@ -1,0 +1,160 @@
+<div class="xs-div" style="padding: 0">
+	<script type="text/javascript" src="//static.fakafa.com/js/chong.js"></script>
+	<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/tab.css" />
+	<div class="index-pay-top">
+		<ul>
+			<li class="nab-hover"><a href="javascript:void(0);" style="width: 258px;color: #f60;">苹果游戏充值</a></li>
+		<!--  <li><a href="#">安卓游戏</a></li>
+			<li><a href="#">网游点卡</a></li>-->	
+		</ul>
+    </div>
+	<form id="chongForm1" method="GET" action="/game/redirect.jspx" autocomplete="off">
+		<table width="260" height="250" style="text-align: center; background-color: #F9F9F9; border: 1px solid #dcdcdc; font-size: 13px;" cellpadding="0" cellspacing="1">
+			<tr>
+				<td colspan="2"><input type="hidden" value="1" id="plid" name="plid"></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏名称：</td>
+				<td style="text-align: left"><select id="gid" name="gid" onchange="getOperator()">
+						<option value="">----请选择游戏----</option>
+					[#if appleList?size gt 0]
+           				[#list appleList as game]
+						<option value="${(game.id)!''}">${(game.py)?substring(0,1)}-${(game.GName)!''}</option>
+						[/#list] 
+            		[/#if]
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏版本：</td>
+				<td style="text-align: left"><select id="oid" name="oid" onchange="getArea()">
+						<option value="">----请选择版本----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的区：</td>
+				<td style="text-align: left"><select id="aid" name="aid" onchange="getServer()">
+						<option value="">---请选择游戏区---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的服：</td>
+				<td style="text-align: left"><select id="sid" name="sid" onchange="getPar()">
+						<option value="">---请选择游戏服---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">充值面值：</td>
+				<td style="text-align: left"><select id="pid" name="pid" onclick="changePar()">
+						<option value="">----请选择面值----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">售价：</td>
+				<td style="text-align: left"><strong class="orange" id="finalmoney">0 元</strong></td>
+			</tr>
+			<tr>
+				<td colspan="2"><li><a id="btn_LoginBuy" onclick="submit('chongForm1');"><img title="立即充值" src="//static.fakafa.com/images/css/qpay.png" width="68" height="27" alt="立即充值" /></a></li></td>
+			</tr>
+		</table>
+	</form>
+	
+	<form id="chongForm2" style="display: none;" method="GET" action="/game/redirect.jspx" autocomplete="off">
+		<table width="260" height="250" style="text-align: center; background-color: #F9F9F9; border: 1px solid #dcdcdc; font-size: 13px;" cellpadding="0" cellspacing="1">
+			<tr>
+				<td colspan="2"><input type="hidden" value="2" id="plid" name="plid"></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏名称：</td>
+				<td style="text-align: left"><select id="gid" name="gid" onchange="getOperator()">
+						<option value="">----请选择游戏----</option>
+					[#if androidList?size gt 0]
+           				[#list androidList as game]
+						<option value="${(game.id)!''}">${(game.py)?substring(0,1)}-${(game.GName)!''}</option>
+						[/#list] 
+            		[/#if]
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏版本：</td>
+				<td style="text-align: left"><select id="oid" name="oid" onchange="getArea()">
+						<option value="">----请选择版本----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的区：</td>
+				<td style="text-align: left"><select id="aid" name="aid" onchange="getServer()">
+						<option value="">---请选择游戏区---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的服：</td>
+				<td style="text-align: left"><select id="sid" name="sid" onchange="getPar()">
+						<option value="">---请选择游戏服---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">充值面值：</td>
+				<td style="text-align: left"><select id="pid" name="pid" onclick="changePar()">
+						<option value="">----请选择面值----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">售价：</td>
+				<td style="text-align: left"><strong class="orange" id="finalmoney">0 元</strong></td>
+			</tr>
+			<tr>
+				<td colspan="2"><li><a id="btn_LoginBuy" onclick="submit('chongForm2');"><img title="立即充值" src="//static.fakafa.com/images/css/qpay.png" width="68" height="27" alt="立即充值" /></a></li></td>
+			</tr>
+		</table>
+	</form>
+	
+	<form id="chongForm3" style="display: none;" method="GET" action="/game/redirect.jspx" autocomplete="off">
+		<table width="260" height="250" style="text-align: center; background-color: #F9F9F9; border: 1px solid #dcdcdc; font-size: 13px;" cellpadding="0" cellspacing="1">
+			<tr>
+				<td colspan="2"><input type="hidden" value="3" id="plid" name="plid"></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏名称：</td>
+				<td style="text-align: left"><select id="gid" name="gid" onchange="getOperator()">
+						<option value="">----请选择游戏----</option>
+					[#if onlineList?size gt 0]
+           				[#list onlineList as game]
+						<option value="${(game.id)!''}">${(game.py)?substring(0,1)}-${(game.GName)!''}</option>
+						[/#list] 
+            		[/#if]
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏版本：</td>
+				<td style="text-align: left"><select id="oid" name="oid" onchange="getArea()">
+						<option value="">----请选择版本----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的区：</td>
+				<td style="text-align: left"><select id="aid" name="aid" onchange="getServer()">
+						<option value="">---请选择游戏区---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">游戏的服：</td>
+				<td style="text-align: left"><select id="sid" name="sid" onchange="getPar()">
+						<option value="">---请选择游戏服---</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">充值面值：</td>
+				<td style="text-align: left"><select id="pid" name="pid" onclick="changePar()">
+						<option value="">----请选择面值----</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td style="text-align: right">售价：</td>
+				<td style="text-align: left"><strong class="orange" id="finalmoney">0 元</strong></td>
+			</tr>
+			<tr>
+				<td colspan="2"><li><a id="btn_LoginBuy" onclick="submit('chongForm3');"><img title="立即充值" src="//static.fakafa.com/images/css/qpay.png" width="68" height="27" alt="立即充值" /></a></li></td>
+			</tr>
+		</table>
+	</form>
+</div>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${(game.GName)!''}${(game.PName)!''}官方代充交易-${(game.GName)!''}${(game.PName)!''}游戏交易平台-发卡发手游服务平台</title>
+<meta name="keywords" content="fakafa，fakafa.com，${(game.GName)!''}${(game.PName)!''}交易平台，${(game.GName)!''}${(game.PName)!''}官网，${(game.GName)!''}${(game.PName)!''}游戏币，游戏交易平台，网络游戏，游戏币，点卡" />
+<meta name="description" content="fakafa是国内最专业的${(game.GName)!''}${(game.PName)!''}游戏交易平台,提供各种${(game.GName)!''}${(game.PName)!''}是手机充值交易，装备交易，账号交易等买卖服务,欢迎来到${(game.GName)!''}${(game.PName)!''}频道！" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global.css"  />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/Public.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/list_detail.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa_app.css">
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/fakafa.common.css" />
+<link rel="stylesheet" type="text/css" href="//static.fakafa.com/css/global_new.css" />
+<link rel="shortcut icon" href="//static.fakafa.com/css/favicon.ico" />
+<style type="text/css">
+body { behavior:url("http://static.fakafa.com/css/csshover.htc");}
+</style>
+<!--[if lte IE 6]>
+<style type="text/css">
+body { behavior:url("//static.fakafa.com/css/csshover.htc");}
+</style>
+<![endif]-->
+<script type="text/javascript" src="//static.fakafa.com/js/jquery-1.7.2.min.js"></script>
+<style>
+.header {
+	height: 105px;
+}
+</style>
+</head>
+<body>
+[#include "../common/top.html"/]
+<div class="header">
+  <div class="left"><a href="//www.fakafa.com/"><img src="//static.fakafa.com/images/logo/logo_pro.png" alt="发卡发手游服务平台"/></a></div>
+  [#include "../common/search.html"/]
+</div>
+
+<div class="Navigation">
+  <div class="center Part">
+    <ul>
+      <li> <a href="/">首页</a> <a href="/apple.html" style="background:#2c977d;">充值中心</a> <a target="_blank" href="/kefu/">客服中心</a> <a target="_blank" href="/bangzhu/">帮助中心</a> <a href="/user/index.html">个人中心</a> </li>
+    </ul>
+  </div>
+</div>
+
+<!--头部结束-->
+<div class="W980 clearfix">
+  <div class="crumbs">
+    <div class="crumbs-address" style="text-align: left;">当前位置：<a href="/" title="发卡发手游服务平台">首页</a>&gt;<a title="${(game.PName)!''}" href="${url!'/'}">${(game.PName)!''}</a>&gt;<span title="${(game.GName)!''}">${(game.GName)!''}</span></div>
+  </div>
+<div class="boxshadow"></div>
+[#if (game.plid) == 1]
+ [#if gses?size gt 0]
+  <div class="agent-pay">
+    <ul>   
+	[#list gses as gs]
+        <li><div><i><a href="/buy-i-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 苹果官方代充</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-i-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list] 
+    </ul>
+  </div>
+ [/#if]  
+[#elseif (game.plid) == 2]
+ [#if gs1es?size gt 0]
+  <div class="agent-pay">
+    <ul>  
+	[#list gs1es as gs]
+        <li><div><i><a href="/buy-a-1-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 安卓首充号</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-a-1-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list]	
+    </ul>
+  </div>
+ [/#if]
+ [#if gs2es?size gt 0]
+  <div class="agent-pay">
+    <ul>  
+	[#list gs2es as gs]
+        <li><div><i><a href="/buy-a-2-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 安卓首充代充</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-a-2-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list]	
+    </ul>
+  </div>
+ [/#if]
+ [#if gs3es?size gt 0]
+  <div class="agent-pay">
+    <ul>  
+	[#list gs3es as gs]
+        <li><div><i><a href="/buy-a-3-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 安卓代充</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-a-3-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list]	
+    </ul>
+  </div>
+ [/#if]
+ [#if gs4es?size gt 0]
+  <div class="agent-pay">
+    <ul>  
+	[#list gs4es as gs]
+        <li><div><i><a href="/buy-a-4-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 安卓金币元宝</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-a-4-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list]	
+    </ul>
+  </div>
+ [/#if]
+ [#if gs5es?size gt 0]
+  <div class="agent-pay">
+    <ul>  
+	[#list gs5es as gs]
+        <li><div><i><a href="/buy-a-5-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 安卓金币点卡</a></i></div><p><b>${discount1!'95'}折</b>起</p><a href="/buy-a-5-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list]	
+    </ul>
+  </div>
+ [/#if]
+[#elseif (game.plid) == 3]
+ [#if gses?size gt 0]
+  <div class="agent-pay">
+    <ul>   
+	[#list gses as gs]
+        <li><div><i><a href="/buy-o-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 游戏点卡点券充值</a></i></div><p><b>${discount1!'10'}折</b>起</p><a href="/buy-o-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list] 
+    </ul>
+  </div>
+ [/#if]
+[#elseif (game.plid) == 4]
+ [#if gses?size gt 0]
+  <div class="agent-pay">
+    <ul>   
+	[#list gses as gs]
+        <li><div><i><a href="/buy-w-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 游戏充值</a></i></div><p><b>${discount1!'10'}折</b>起</p><a href="/buy-w-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list] 
+    </ul>
+  </div>
+ [/#if]
+[#elseif (game.plid) == 5]
+ [#if gses?size gt 0]
+  <div class="agent-pay">
+    <ul>   
+	[#list gses as gs]
+        <li><div><i><a href="/buy-p-${(gs.id)!'0'}.html" target="_blank">【${(gs.OName)!''}】${(gs.PName)!''} ${(gs.GName)!''} 全区 全服 WP版官方充值</a></i></div><p><b>${discount1!'10'}折</b>起</p><a href="/buy-p-${(gs.id)!'0'}.html" target="_blank">立即购买</a></li>
+    [/#list] 
+    </ul>
+  </div>
+ [/#if][#else] 
+[/#if]
+<div class="boxshadow"></div>
+</div>
+<div class="clear"></div>
+<!--  -->
+[#include "../common/foot.html"/]
+</body>
+</html>

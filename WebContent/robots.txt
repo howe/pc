@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /META-INF/*Disallow: /r/*Disallow: /res/*Disallow: /thirdparty/*Disallow: /u/*Disallow: /WEB-INF/*Disallow: /error-*.html$Disallow: /error.*$Disallow: /user/*.*$Disallow: /houtai/*Disallow: /error/*
+Sitemap:http://www.fakafa.com/siteMap.xml
